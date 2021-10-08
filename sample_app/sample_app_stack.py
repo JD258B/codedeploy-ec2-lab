@@ -27,7 +27,7 @@ class SampleAppStack(cdk.Stack):
             auto_delete_objects=True, removal_policy=cdk.RemovalPolicy.DESTROY
         )
 
-        s3_deploy_artifacts = s3_deploy.BucketDeployment(self, 'sample-app-deployment',
+        s3_artifacts = s3_deploy.BucketDeployment(self, 'sample-app-deployment',
             destination_bucket=app_artifact_bucket,
             sources=[s3_deploy.Source.asset('./artifacts')]
         )
@@ -151,31 +151,32 @@ class SampleAppStack(cdk.Stack):
         self.auto_scaling_group.connections.allow_from(app_lb, ec2.Port.tcp(80), 'ALB to EC2 access')
         app_lb_listener.add_targets('sample-app-target-group', port=80, targets=[self.auto_scaling_group], target_group_name='sample-app-tg')
 
-        asg_name = cdk.CfnOutput(self, 'asg-name',
-            value=auto_scaling_group.auto_scaling_group_name,
-            description='AutoScaling Group Name: '
+        asg_name = cdk.CfnOutput(self, 'AutoScaling Group Name',
+            value=self.auto_scaling_group.auto_scaling_group_name,
+            description='AutoScaling Group Name'
         )
-        code_deploy_role_arn = cdk.CfnOutput(self, 'codedeploy-role-arn',
+        code_deploy_role_arn = cdk.CfnOutput(self, 'Codedeploy Role ARN',
             value=codedeploy_role.role_arn,
-            description='CodeDeploy Role ARN: '
+            description='CodeDeployRoleARN'
         )
-        s3_bucket = cdk.CfnOutput(self, 's3-bucket-name',
-            value=s3_bucket.bucket_name,
-            description='S3 Bucket Name: ' 
+        s3_bucket = cdk.CfnOutput(self, 'S3 Bucket Name',
+            value=app_artifact_bucket.bucket_name,
+            description='S3 Bucket Name' 
         )
-        initial_deployment_object_url = cdk.CfnOutput(self, 'initial-s3-object-url',
-            value='s3://' + s3_bucket.bucket_name + '/initial-deployment/Archive.zip',
-            description='Initial Deployment S3 Object URL: '
+        initial_deployment_object_url = cdk.CfnOutput(self, 'Initial S3 Object URL',
+            value='s3://' + app_artifact_bucket.bucket_name + '/initial-deployment/Archive.zip',
+            description='Initial Deployment S3 Object URL'
         )
-        in_place_deployment_object_url = cdk.CfnOutput(self, 'in-place-s3-object-url',
-            value='s3://' + s3_bucket.bucket_name + '/in-place/Archive.zip',
-            description='In-Place Deployment S3 Object URL: '
+        in_place_deployment_object_url = cdk.CfnOutput(self, 'In-Place S3 Object URL',
+            value='s3://' + app_artifact_bucket.bucket_name + '/in-place/Archive.zip',
+            description='In-Place Deployment S3 Object URL'
         )
-        blue_green_deployment_object_url = cdk.CfnOutput(self, 'blue-green-s3-object-url',
-            value='s3://' + s3_bucket.bucket_name + '/blue-green/Archive.zip',
-            description='Initial Deployment S3 Object URL: '
+        blue_green_deployment_object_url = cdk.CfnOutput(self, 'Blue Green S3 Object URL',
+            value='s3://' + app_artifact_bucket.bucket_name + '/blue-green/Archive.zip',
+            description='Initial Deployment S3 Object URL'
         )
-        alb_url = cdk.CfnOutput(self, 'alb-url',
+        alb_url = cdk.CfnOutput(self, 'Load Balancer URL',
             value=app_lb.load_balancer_dns_name,
-            description='Load Balancer URL: '
+            description='Load Balancer URL'
         )
+        
