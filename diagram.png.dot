@@ -1,0 +1,289 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "SampleAppStack" {
+    subgraph "cluster-SubGraph.SampleAppStack" {
+      graph [
+        label = "SampleAppStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "SampleAppStack/app-artifact-bucket" [
+        label = " app-artifact-bucket",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "SampleAppStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" [
+        label = " Custom \nCDKBucketDeployment86",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.4819999999999998,
+      ];
+      "SampleAppStack/sample-app-role" [
+        label = " sample-app-role",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "SampleAppStack/sample-app-s3-read" [
+        label = " sample-app-s3-read",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "SampleAppStack/codedeploy-role" [
+        label = " codedeploy-role",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "SampleAppStack/codedeploy-policy" [
+        label = " codedeploy-policy",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "SampleAppStack/sample-app-vpc" [
+        label = " sample-app-vpc",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "SampleAppStack/sample-app-alb" [
+        label = " sample-app-alb",
+        fontsize = 12,
+        image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Elastic-Load-Balancing_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      subgraph "cluster-SubGraph.sample-app-deployment" {
+        graph [
+          label = "sample-app-deployment",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "SampleAppStack/sample-app-deployment/AwsCliLayer" [
+          label = " AwsCliLayer",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "SampleAppStack/sample-app-deployment/CustomResource" [
+          label = " CloudFormation\nCustomResource\nCustomResource",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.898,
+        ];
+      }
+      subgraph "cluster-SubGraph.sample-app-asg" {
+        graph [
+          label = "sample-app-asg",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "SampleAppStack/sample-app-asg/InstanceSecurityGroup" [
+          label = "\nInstanceSecurityGroup",
+          fontsize = 12,
+        ];
+        "SampleAppStack/sample-app-asg/InstanceProfile" [
+          label = " IAM InstanceProfile\nInstanceProfile",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Resource/Res_Security-Identity-and-Compliance/Res_48_Dark/Res_AWS-Identity-Access-Management_Permissions_48_Dark_gen.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.4819999999999998,
+        ];
+        "SampleAppStack/sample-app-asg/LaunchConfig" [
+          label = " AutoScaling\nLaunchConfiguration\nLaunchConfig",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_Amazon-EC2-Auto-Scaling_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.898,
+        ];
+        "SampleAppStack/sample-app-asg/ASG" [
+          label = " AutoScaling\nAutoScalingGroup ASG",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_Amazon-EC2-Auto-Scaling_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.4819999999999998,
+        ];
+      }
+    }
+  }
+  "SampleAppStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "SampleAppStack/app-artifact-bucket" [
+    dir = "both",
+  ];
+  "SampleAppStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "SampleAppStack/sample-app-deployment/AwsCliLayer" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-s3-read" -> "SampleAppStack/app-artifact-bucket" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-s3-read" -> "SampleAppStack/sample-app-role" [
+    dir = "both",
+  ];
+  "SampleAppStack/codedeploy-policy" -> "SampleAppStack/codedeploy-role" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-alb" -> "SampleAppStack/sample-app-vpc" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-alb" -> "SampleAppStack/sample-app-asg/InstanceSecurityGroup" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/InstanceSecurityGroup" -> "SampleAppStack/sample-app-vpc" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/InstanceSecurityGroup" -> "SampleAppStack/sample-app-alb" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/InstanceProfile" -> "SampleAppStack/sample-app-role" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/LaunchConfig" -> "SampleAppStack/sample-app-asg/InstanceProfile" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/LaunchConfig" -> "SampleAppStack/sample-app-asg/InstanceSecurityGroup" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/ASG" -> "SampleAppStack/sample-app-asg/LaunchConfig" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/ASG" -> "SampleAppStack/sample-app-vpc" [
+    dir = "both",
+  ];
+  "SampleAppStack/sample-app-asg/ASG" -> "SampleAppStack/sample-app-alb" [
+    dir = "both",
+  ];
+}

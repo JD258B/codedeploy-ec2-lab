@@ -19,14 +19,14 @@ setuptools.setup(
     packages=setuptools.find_packages(where="sample_app"),
 
     install_requires=[
-        "aws-cdk.core==1.126.0",
-        "aws-cdk.aws-ec2==1.126.0",
-        "aws-cdk.aws-autoscaling==1.126.0",
-        "aws_cdk.aws-elasticloadbalancingv2==1.126.0",
-        "aws_cdk.aws-iam==1.126.0",
-        "aws_cdk.aws-s3==1.126.0",
-        "aws_cdk.aws-s3-deployment==1.126.0",
-        "aws_cdk.aws-codedeploy==1.126.0"
+        "aws-cdk.core",
+        "aws-cdk.aws-ec2",
+        "aws-cdk.aws-autoscaling",
+        "aws_cdk.aws-elasticloadbalancingv2",
+        "aws_cdk.aws-iam",
+        "aws_cdk.aws-s3",
+        "aws_cdk.aws-s3-deployment",
+        "aws_cdk.aws-codedeploy"
     ],
 
     python_requires=">=3.6",
